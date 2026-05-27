@@ -1,0 +1,11 @@
+{
+  "description": "Türkçe yama kontrolünde bakılmasını istediğiniz siteleri buraya ekleyebilirsiniz. Bu dosya şimdilik referans listesidir; otomatik tarama sonraki aşamada bu listedeki enabled=true olan kayıtları kullanacak şekilde genişletilebilir.",
+  "sites": [
+    {
+      "name": "Örnek Yama Sitesi",
+      "url": "https://example.com",
+      "enabled": false,
+      "notes": "Buraya arama yapılmasını istediğiniz Türkçe yama sitelerini ekleyin."
+    }
+  ]
+}

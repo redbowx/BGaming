@@ -1,0 +1,163 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+  background: var(--color-overlay);
+  backdrop-filter: blur(10px);
+}
+
+.modal {
+  width: min(920px, 100%);
+  max-height: min(900px, calc(100vh - 52px));
+  overflow: auto;
+  padding: 25px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-card);
+}
+
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.modal header p,
+.modal header h2,
+.content h3,
+.content p {
+  margin: 0;
+}
+
+.modal header p {
+  color: var(--color-text-muted);
+  font-size: 0.77rem;
+  font-weight: 900;
+}
+
+.modal header h2 {
+  margin-top: 6px;
+}
+
+.closeButton {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(300px, 440px) 1fr;
+  align-items: start;
+  gap: 24px;
+}
+
+.preview {
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-weight: 800;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content aside {
+  display: grid;
+  gap: 14px;
+  color: var(--color-accent);
+}
+
+.content aside h3 {
+  color: var(--color-text);
+}
+
+.content aside p {
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.periodControl {
+  display: flex;
+  gap: 8px;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+}
+
+.periodControl button {
+  flex: 1;
+  min-height: 42px;
+  border: 0;
+  border-radius: calc(var(--radius-control) - 4px);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.periodControl .activePeriod {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.message {
+  padding: 12px;
+  overflow-wrap: anywhere;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 38%, var(--color-border));
+  border-radius: var(--radius-control);
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.saveButton {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  box-shadow: var(--shadow-accent);
+}
+
+.saveButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (max-width: 740px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

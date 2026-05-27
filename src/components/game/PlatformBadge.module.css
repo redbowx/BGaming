@@ -1,0 +1,27 @@
+.badge {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-panel);
+  color: var(--color-text);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.badge span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logo {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}

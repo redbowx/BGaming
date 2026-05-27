@@ -1,0 +1,94 @@
+.selectWrap {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.trigger {
+  width: 100%;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-border));
+  background: var(--color-surface-hover);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.trigger span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trigger svg {
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+}
+
+.list {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(100% + 6px);
+  z-index: 130;
+  max-height: min(320px, 42vh);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  border-radius: var(--radius-control);
+  background: color-mix(in srgb, var(--color-panel) 92%, #111827);
+  box-shadow: var(--shadow-modal);
+}
+
+.option {
+  width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: calc(var(--radius-control) - 5px);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 850;
+  text-align: left;
+}
+
+.option:hover,
+.activeOption {
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-surface-hover));
+  color: var(--color-text);
+}
+
+.activeOption {
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}

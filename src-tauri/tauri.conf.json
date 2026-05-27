@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "BGaming",
+  "version": "1.0.0",
+  "identifier": "com.personal.bgaming",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "BGaming",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 1000,
+        "minHeight": 650,
+        "resizable": true,
+        "maximized": true,
+        "visible": false
+      },
+      {
+        "label": "quick-launcher-widget",
+        "url": "/",
+        "title": "BGaming - Hızlı Başlatıcı",
+        "width": 390,
+        "height": 640,
+        "minWidth": 330,
+        "minHeight": 400,
+        "resizable": true,
+        "visible": false,
+        "skipTaskbar": true,
+        "decorations": false,
+        "transparent": true,
+        "shadow": false
+      },
+      {
+        "label": "surprise-widget",
+        "url": "/",
+        "title": "BGaming - Şaşırt Beni!",
+        "width": 390,
+        "height": 520,
+        "minWidth": 330,
+        "minHeight": 400,
+        "resizable": true,
+        "visible": false,
+        "skipTaskbar": true,
+        "decorations": false,
+        "transparent": true,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$APPDATA/**",
+          "$APPLOCALDATA/**",
+          "$APPCONFIG/**"
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "sql": {
+      "preload": ["sqlite:bgaming.db"]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": ["icons/icon.ico"]
+  }
+}

@@ -1,0 +1,484 @@
+.widget {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  overflow: hidden;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 20%, var(--color-border));
+  border-radius: 18px;
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at 86% 4%, var(--color-shell-glow), transparent 15rem),
+    linear-gradient(140deg, var(--color-bg), var(--color-bg-soft));
+}
+
+.widgetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  user-select: none;
+  cursor: grab;
+}
+
+.widgetHeader:active {
+  cursor: grabbing;
+}
+
+.widgetHeaderPinned,
+.widgetHeaderPinned:active {
+  cursor: default;
+}
+
+.widgetBrand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.widgetBrand svg {
+  color: var(--color-accent);
+}
+
+.widgetBrand strong,
+.widgetBrand span {
+  display: block;
+}
+
+.widgetBrand strong {
+  font-size: 0.93rem;
+}
+
+.widgetBrand span {
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.headerActions,
+.rowActions,
+.surpriseActions {
+  display: flex;
+  gap: 6px;
+}
+
+.headerActions button,
+.closeOnly,
+.rowActions button {
+  height: 34px;
+  width: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.headerActions button:hover,
+.closeOnly:hover,
+.rowActions button:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  background: var(--color-surface-hover);
+}
+
+.headerActions .pinActive {
+  border-color: color-mix(in srgb, var(--color-accent) 58%, var(--color-border));
+  color: var(--color-on-accent);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+}
+
+.pinActive svg {
+  animation: pinSettle 420ms cubic-bezier(0.22, 1.35, 0.36, 1);
+  transform: rotate(-22deg);
+}
+
+.pinButton svg {
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.pinButton:hover svg {
+  transform: rotate(-14deg) translateY(-1px);
+}
+
+@keyframes pinSettle {
+  0% {
+    opacity: 0.25;
+    transform: rotate(8deg) translateY(-5px) scale(1.2);
+  }
+
+  55% {
+    transform: rotate(-28deg) translateY(1px) scale(0.94);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-22deg) translateY(0) scale(1);
+  }
+}
+
+.searchField {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-panel);
+  color: var(--color-text-muted);
+}
+
+.searchField:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.searchField input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+}
+
+.widgetSubhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.widgetSubhead span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-surface));
+  font-weight: 800;
+}
+
+.launcherList {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.launcherRow {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 7px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-panel);
+}
+
+.rowCover {
+  width: 44px;
+  height: 49px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: var(--color-surface);
+}
+
+.rowCover img,
+.selectedCover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.rowInfo {
+  min-width: 0;
+}
+
+.rowInfo strong,
+.rowInfo span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rowInfo strong {
+  font-size: 0.8rem;
+}
+
+.rowInfo span {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+}
+
+.rowActions .playAction {
+  border: 0;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+}
+
+.rowActions button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
+
+.notice,
+.empty {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.notice {
+  border-color: color-mix(in srgb, var(--color-accent) 36%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent) 11%, var(--color-panel));
+}
+
+.empty {
+  text-align: center;
+}
+
+.surpriseWidget {
+  gap: 14px;
+}
+
+.compactToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.compactToggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+}
+
+.surpriseEmpty {
+  flex: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 9px;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  color: var(--color-text-muted);
+}
+
+.surpriseEmpty p {
+  max-width: 220px;
+  margin: 0;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.roulette {
+  position: relative;
+  height: 114px;
+  flex: 0 0 114px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 34%, var(--color-border));
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(90deg, var(--color-panel), transparent 17%, transparent 83%, var(--color-panel)),
+    var(--color-panel);
+}
+
+.rouletteTrack {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: max-content;
+  padding: 7px;
+  transform: translateX(var(--roulette-start-offset));
+}
+
+.rouletteTrackRolling {
+  animation: miniRouletteRoll 3.8s cubic-bezier(0.08, 0.75, 0.14, 1) forwards;
+}
+
+@keyframes miniRouletteRoll {
+  from {
+    transform: translateX(var(--roulette-start-offset));
+  }
+
+  to {
+    transform: translateX(var(--roulette-result-offset));
+  }
+}
+
+.rouletteTile {
+  width: 76px;
+  min-width: 76px;
+  height: 98px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: var(--color-surface);
+}
+
+.rouletteCover {
+  width: 100%;
+  height: 72px;
+  overflow: hidden;
+  background: var(--color-bg-soft);
+}
+
+.rouletteCover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.rouletteTile strong {
+  display: block;
+  overflow: hidden;
+  padding: 5px 5px 0;
+  color: var(--color-text);
+  font-size: 0.6rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rouletteMarker {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  z-index: 2;
+  width: 2px;
+  background: var(--color-accent);
+  box-shadow: 0 0 11px var(--color-accent);
+  transform: translateX(-50%);
+}
+
+.rouletteMarker svg {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  color: var(--color-accent);
+  transform: translateX(-50%);
+}
+
+.rouletteStatus {
+  flex: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+}
+
+.rouletteStatus svg {
+  color: var(--color-accent);
+  animation: rouletteSparkle 820ms ease-in-out infinite alternate;
+}
+
+@keyframes rouletteSparkle {
+  to {
+    filter: drop-shadow(0 0 8px var(--color-accent));
+    transform: scale(1.14) rotate(8deg);
+  }
+}
+
+.selectedGame {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 11px;
+}
+
+.selectedCover {
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--color-surface);
+}
+
+.selectedGame p,
+.selectedGame h2 {
+  margin: 0;
+}
+
+.selectedGame p,
+.selectedGame span {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.selectedGame h2 {
+  margin: 5px 0;
+  overflow: hidden;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drawButton,
+.surpriseDrawButton,
+.launchButton {
+  height: 43px;
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.surpriseDrawButton {
+  border: 0;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+  box-shadow: 0 9px 22px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.surpriseDrawButton:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.surpriseDrawButton:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.launchButton {
+  border: 0;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+}
+
+.launchButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

@@ -1,0 +1,283 @@
+.page {
+  display: grid;
+  gap: 22px;
+}
+
+.header,
+.totalCard,
+.metricCard,
+.distributionPanel,
+.emptyPanel {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-card);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px;
+}
+
+.header p,
+.header h2,
+.totalCard p,
+.emptyPanel h3,
+.emptyPanel p,
+.panelHeader h3 {
+  margin: 0;
+}
+
+.header p {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin-top: 6px;
+}
+
+.header span {
+  color: var(--color-text-muted);
+  font-weight: 900;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerActions button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+  border-radius: var(--radius-control);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  box-shadow: var(--shadow-accent);
+}
+
+.headerActions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.36fr) minmax(0, 0.64fr);
+  gap: 18px;
+}
+
+.totalCard {
+  display: grid;
+  align-content: space-between;
+  min-height: 250px;
+  padding: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--color-accent) 26%, transparent), transparent 34%),
+    var(--color-panel);
+}
+
+.totalCard span,
+.metricCard span {
+  color: var(--color-text-muted);
+  font-weight: 900;
+}
+
+.totalCard strong {
+  color: var(--color-text);
+  font-size: clamp(3.2rem, 10vw, 6.4rem);
+  line-height: 0.9;
+}
+
+.totalCard p {
+  color: var(--color-text-muted);
+  font-weight: 800;
+}
+
+.progressTrack,
+.barTrack {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-surface);
+}
+
+.progressTrack span,
+.barTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  box-shadow: var(--shadow-accent);
+}
+
+.metricGrid,
+.sourceGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.metricGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sourceGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metricCard {
+  display: grid;
+  gap: 12px;
+  min-height: 118px;
+  padding: 18px;
+  background: var(--color-surface);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.metricCard:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-border));
+  background: var(--color-surface-hover);
+  transform: translateY(-2px);
+}
+
+.metricCard strong {
+  color: var(--color-text);
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+.sourceCard {
+  min-height: 96px;
+}
+
+.distributionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.distributionPanel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.panelHeader h3 {
+  font-size: 1rem;
+}
+
+.panelHeader span {
+  min-width: 32px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+  font-weight: 900;
+}
+
+.barList {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.compactBars {
+  max-height: 420px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.barRow {
+  display: grid;
+  gap: 8px;
+}
+
+.barLabel {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.barLabel strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.barLabel span {
+  color: var(--color-text-muted);
+  font-weight: 900;
+}
+
+.emptyText,
+.emptyPanel p {
+  color: var(--color-text-muted);
+}
+
+.emptyText {
+  margin: 14px 0 0;
+}
+
+.emptyPanel {
+  padding: 28px;
+}
+
+.emptyPanel h3 {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1180px) {
+  .heroGrid,
+  .distributionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .headerActions {
+    flex-wrap: wrap;
+  }
+
+  .metricGrid,
+  .sourceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .metricGrid,
+  .sourceGrid {
+    grid-template-columns: 1fr;
+  }
+}

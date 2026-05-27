@@ -1,0 +1,287 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: var(--color-overlay);
+  backdrop-filter: blur(12px);
+}
+
+.modal {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: var(--color-panel);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.44), var(--shadow-accent);
+  animation: scaleIn 180ms ease both;
+}
+
+.closeButton {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.header p,
+.header h2 {
+  margin: 0;
+}
+
+.header p {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin-top: 6px;
+  font-size: 1.8rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.coverBox {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.coverPreview,
+.coverBox > div {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-card);
+}
+
+.coverPreview {
+  object-fit: cover;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.form label,
+.selectionBlock > span {
+  display: grid;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.form input,
+.form select,
+.form textarea,
+.addRow input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form input,
+.form select,
+.addRow input {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.form textarea {
+  min-height: 110px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.selectionBlock {
+  display: grid;
+  gap: 10px;
+}
+
+.optionList {
+  max-height: 120px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+}
+
+.optionList label,
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+}
+
+.optionList input,
+.toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+}
+
+.addRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.addRow button,
+.coverBox button,
+.secondaryButton,
+.primaryButton {
+  min-height: 42px;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.addRow button,
+.coverBox button,
+.primaryButton {
+  border: 0;
+  padding: 0 16px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-on-accent);
+}
+
+.secondaryButton {
+  border: 1px solid var(--color-border);
+  padding: 0 16px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.dangerButton {
+  min-height: 42px;
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  border-radius: var(--radius-control);
+  background: rgba(220, 38, 38, 0.12);
+  color: #fca5a5;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0 16px;
+}
+
+.toggleGrid,
+.selectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.toggle {
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font-weight: 800;
+}
+
+.error {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  border-radius: var(--radius-control);
+  background: rgba(220, 38, 38, 0.12);
+  color: #fca5a5;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.confirmOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--color-overlay);
+  backdrop-filter: blur(10px);
+}
+
+.confirmBox {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-modal);
+}
+
+.confirmBox h3,
+.confirmBox p {
+  margin: 0;
+}
+
+.confirmBox p {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 860px) {
+  .content,
+  .toggleGrid,
+  .selectGrid {
+    grid-template-columns: 1fr;
+  }
+}

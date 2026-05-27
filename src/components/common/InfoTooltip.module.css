@@ -1,0 +1,45 @@
+.trigger {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: help;
+  line-height: 0;
+  padding: 0;
+}
+
+.trigger svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+  transform: translateY(0.25px);
+  stroke-width: 2.25;
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  outline: none;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 9999;
+  width: min(360px, calc(100vw - 32px));
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-panel);
+  color: var(--color-text);
+  box-shadow: var(--shadow-modal);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.5;
+  pointer-events: none;
+}

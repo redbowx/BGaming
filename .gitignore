@@ -1,0 +1,31 @@
+node_modules
+dist
+dist-ssr
+*.local
+src-tauri/target
+src-tauri/gen
+.DS_Store
+
+# Local desktop builds and generated installers are distributed as Release assets.
+*.exe
+*.msi
+
+# Runtime/user data must never be committed.
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.backup
+covers/
+backups/
+imports/
+temp/
+
+# Local credentials and machine-specific files.
+.env
+.env.*
+!.env.example
+*.log
+BGaming_BAGLAM_NOTU.txt
+BGaming Baslat.bat
